@@ -1,20 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:prolijenie/Components/people_info.dart';
+import 'package:prolijenie/Components/var.dart';
 
 class FirstPage extends StatelessWidget {
-  FirstPage({super.key});
-
-  final List<String> names = <String>[
-    "Chipi Chipi",
-    "Chapa Chapa",
-    "Dubi Dubi",
-    "Daba Daba",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ];
+  const FirstPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,22 +14,25 @@ class FirstPage extends StatelessWidget {
           children: <Widget>[
             Container(
               height: MediaQuery.of(context).size.height * 0.2,
-              color: Colors.black,
+              //color: Colors.black,
               child: Center(
                 child: Container(
-                  color: Colors.white,
-                  height: MediaQuery.of(context).size.height * 0.035,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                  ),
+                  height: MediaQuery.of(context).size.height * 0.045,
                   width: MediaQuery.of(context).size.width * 0.5,
-                  child: TextField(
+                  child: const TextField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: 'Поиск'),
+                        border: OutlineInputBorder(), hintText: 'Поиск'),
                   ),
                 ),
               ),
             ),
             Container(
               height: MediaQuery.of(context).size.height * 0.8,
-              color: Colors.amber,
+              //color: Colors.amber,
               child: Row(
                 children: <Widget>[
                   Container(
@@ -48,12 +40,12 @@ class FirstPage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.1,
                   ),
                   Container(
-                      color: Colors.green,
+                      //color: Colors.green,
                       width: MediaQuery.of(context).size.width * 0.8,
                       child: ListView.builder(
-                          itemCount: names.length,
+                          itemCount: people.length,
                           itemBuilder: (BuildContext context, index) {
-                            return Human();
+                            return Human(index: index);
                           })),
                   Container(
                     color: Colors.blue,
