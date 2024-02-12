@@ -12,23 +12,34 @@ class FirstPage extends StatelessWidget {
         color: Colors.blue,
         child: Column(
           children: <Widget>[
-            Container(
-              height: MediaQuery.of(context).size.height * 0.2,
-              //color: Colors.black,
-              child: Center(
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.white,
-                  ),
-                  height: MediaQuery.of(context).size.height * 0.045,
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: const TextField(
+            Center(
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.1,
+                width: MediaQuery.of(context).size.width * 0.9,
+                //color: Colors.black,
+                child: const Align(
+                  alignment: Alignment.bottomCenter,
+                  child: TextField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: 'Поиск'),
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        hintText: 'Поиск',
+                        prefixIcon: Icon(Icons.search)),
                   ),
                 ),
               ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.1,
+              //width: MediaQuery.of(context).size.width * 0.9,
+              //color: Colors.pink,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: favorite.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return CategoryLists(index: index);
+                  }),
             ),
             Container(
               height: MediaQuery.of(context).size.height * 0.8,

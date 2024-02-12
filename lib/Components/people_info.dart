@@ -26,14 +26,14 @@ class Human extends StatelessWidget {
           ),
           Container(
             height: MediaQuery.of(context).size.height * 0.15,
-            width: MediaQuery.of(context).size.width * 0.6,
+            width: MediaQuery.of(context).size.width * 0.45,
             //color: Colors.pink,
             child: Column(
               children: <Widget>[
                 Container(
                   height: MediaQuery.of(context).size.height * 0.045,
-                  width: MediaQuery.of(context).size.width * 0.57,
-                  margin: EdgeInsets.all(4),
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  margin: const EdgeInsets.all(4),
                   child: Text(
                     "${people[index].name}",
                     style: const TextStyle(fontSize: 30),
@@ -41,9 +41,9 @@ class Human extends StatelessWidget {
                   //color: Colors.purple,
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.022,
-                  width: MediaQuery.of(context).size.width * 0.57,
-                  margin: EdgeInsets.all(4),
+                  height: MediaQuery.of(context).size.height * 0.023,
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  margin: const EdgeInsets.all(4),
                   child: Text(
                     "${people[index].phone}",
                     style: const TextStyle(fontSize: 20),
@@ -51,9 +51,9 @@ class Human extends StatelessWidget {
                   //color: Colors.purple,
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.022,
-                  width: MediaQuery.of(context).size.width * 0.57,
-                  margin: EdgeInsets.all(4),
+                  height: MediaQuery.of(context).size.height * 0.023,
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  margin: const EdgeInsets.all(4),
                   child: Text(
                     "${people[index].birthday}",
                     style: const TextStyle(fontSize: 20),
@@ -62,8 +62,50 @@ class Human extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
+          Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                //color: Colors.amber,
+              ),
+              alignment: Alignment.topCenter,
+              height: MediaQuery.of(context).size.height * 0.15,
+              width: MediaQuery.of(context).size.width * 0.1,
+              margin: const EdgeInsets.all(8),
+              child: IconButton(
+                  onPressed: () {
+                    favorite.contains(people[index])
+                        ? favorite.remove(people[index])
+                        : favorite.add(people[index]);
+                  },
+                  icon: favorite.contains(people[index])
+                      ? const Icon(
+                          Icons.favorite,
+                          color: Colors.grey,
+                        )
+                      : const Icon(
+                          Icons.favorite,
+                          color: Colors.pink,
+                        )))
         ],
+      ),
+    );
+  }
+}
+
+class CategoryLists extends StatelessWidget {
+  CategoryLists({super.key, required this.index});
+
+  int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton.icon(
+      onPressed: () {},
+      icon: const Icon(Icons.favorite, color: Colors.pink),
+      label: Text(""),
+      style: OutlinedButton.styleFrom(
+        backgroundColor: Colors.white,
       ),
     );
   }
