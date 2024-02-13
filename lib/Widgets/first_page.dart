@@ -31,16 +31,36 @@ class FirstPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
-              //width: MediaQuery.of(context).size.width * 0.9,
-              //color: Colors.pink,
-              child: ListView.builder(
+                height: MediaQuery.of(context).size.height * 0.1,
+                //width: MediaQuery.of(context).size.width * 0.9,
+                //color: Colors.pink,
+                child: ListView(
                   scrollDirection: Axis.horizontal,
-                  itemCount: favorite.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return CategoryLists(index: index);
-                  }),
-            ),
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.center,
+                      child: OutlinedButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(Icons.favorite, color: Colors.pink),
+                        label: Text("Главная"),
+                        style: OutlinedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: OutlinedButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(Icons.favorite, color: Colors.pink),
+                        label: Text("Избранное"),
+                        style: OutlinedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    )
+                  ],
+                )),
             Container(
               height: MediaQuery.of(context).size.height * 0.8,
               //color: Colors.amber,
