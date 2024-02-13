@@ -92,21 +92,3 @@ class Human extends StatelessWidget {
     );
   }
 }
-
-class CategoryLists extends StatelessWidget {
-  CategoryLists({super.key, required this.index});
-
-  int index;
-
-  @override
-  Widget build(BuildContext context) {
-    return OutlinedButton.icon(
-      onPressed: () {},
-      icon: const Icon(Icons.favorite, color: Colors.pink),
-      label: Text(""),
-      style: OutlinedButton.styleFrom(
-        backgroundColor: Colors.white,
-      ),
-    );
-  }
-}
